@@ -1,4 +1,4 @@
-GccGpioDemo.d GccGpioDemo.o: .././GccGpioDemo.c ../user/led.h \
+user/led.d user/led.o: ../user/led.c ../user/led.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\inttypes.h \
