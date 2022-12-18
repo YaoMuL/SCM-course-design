@@ -2,9 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-GccTimerDemo.c
+GccAdcDemo.c
 
-user\display.c
-
-user\timer.c
+user\adc.c
 

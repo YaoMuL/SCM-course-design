@@ -1,4 +1,4 @@
-GccTimerDemo.d GccTimerDemo.o: .././GccTimerDemo.c \
+GccAdcDemo.d GccAdcDemo.o: .././GccAdcDemo.c ../user/adc.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -14,6 +14,8 @@ GccTimerDemo.d GccTimerDemo.o: .././GccTimerDemo.c \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h
+
+../user/adc.h:
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 

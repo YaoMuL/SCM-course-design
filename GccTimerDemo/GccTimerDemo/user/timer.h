@@ -6,5 +6,6 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>		// _delay_us()
 /* ∫Í∂®“Â */
-
+void timer0_init(void);
+void pwm1_init(void);
 #endif

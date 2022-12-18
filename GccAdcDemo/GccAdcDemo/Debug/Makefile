@@ -38,9 +38,8 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../GccTimerDemo.c \
-../user/display.c \
-../user/timer.c
+../GccAdcDemo.c \
+../user/adc.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,28 +49,24 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-GccTimerDemo.o \
-user/display.o \
-user/timer.o
+GccAdcDemo.o \
+user/adc.o
 
 OBJS_AS_ARGS +=  \
-GccTimerDemo.o \
-user/display.o \
-user/timer.o
+GccAdcDemo.o \
+user/adc.o
 
 C_DEPS +=  \
-GccTimerDemo.d \
-user/display.d \
-user/timer.d
+GccAdcDemo.d \
+user/adc.d
 
 C_DEPS_AS_ARGS +=  \
-GccTimerDemo.d \
-user/display.d \
-user/timer.d
+GccAdcDemo.d \
+user/adc.d
 
-OUTPUT_FILE_PATH +=GccTimerDemo.elf
+OUTPUT_FILE_PATH +=GccAdcDemo.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=GccTimerDemo.elf
+OUTPUT_FILE_PATH_AS_ARGS +=GccAdcDemo.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -83,8 +78,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 
@@ -129,13 +122,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 4.8.1
-	$(QUOTE)D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="GccTimerDemo.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega88pa  
+	$(QUOTE)D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="GccAdcDemo.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega88pa  
 	@echo Finished building target: $@
-	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "GccTimerDemo.elf" "GccTimerDemo.hex"
-	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "GccTimerDemo.elf" "GccTimerDemo.eep" || exit 0
-	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "GccTimerDemo.elf" > "GccTimerDemo.lss"
-	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "GccTimerDemo.elf" "GccTimerDemo.srec"
-	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-size.exe" "GccTimerDemo.elf"
+	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "GccAdcDemo.elf" "GccAdcDemo.hex"
+	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "GccAdcDemo.elf" "GccAdcDemo.eep" || exit 0
+	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "GccAdcDemo.elf" > "GccAdcDemo.lss"
+	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "GccAdcDemo.elf" "GccAdcDemo.srec"
+	"D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-size.exe" "GccAdcDemo.elf"
 	
 	
 
@@ -147,5 +140,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "GccTimerDemo.elf" "GccTimerDemo.a" "GccTimerDemo.hex" "GccTimerDemo.lss" "GccTimerDemo.eep" "GccTimerDemo.map" "GccTimerDemo.srec" "GccTimerDemo.usersignatures"
+	rm -rf "GccAdcDemo.elf" "GccAdcDemo.a" "GccAdcDemo.hex" "GccAdcDemo.lss" "GccAdcDemo.eep" "GccAdcDemo.map" "GccAdcDemo.srec" "GccAdcDemo.usersignatures"
 	

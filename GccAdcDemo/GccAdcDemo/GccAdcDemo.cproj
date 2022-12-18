@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
-    <ProjectGuid>{7d2ac9be-b838-4f7f-aa0a-b60a2953153a}</ProjectGuid>
+    <ProjectGuid>{26d6311e-05cf-45ed-9f19-da6bf8f50af2}</ProjectGuid>
     <avrdevice>ATmega88PA</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>GccTimerDemo</AssemblyName>
-    <Name>GccTimerDemo</Name>
-    <RootNamespace>GccTimerDemo</RootNamespace>
+    <AssemblyName>GccAdcDemo</AssemblyName>
+    <Name>GccAdcDemo</Name>
+    <RootNamespace>GccAdcDemo</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -102,25 +102,13 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GccTimerDemo.c">
+    <Compile Include="GccAdcDemo.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="user\display.c">
+    <Compile Include="user\adc.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="user\display.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="user\hc595.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="user\hc595.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="user\timer.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="user\timer.h">
+    <Compile Include="user\adc.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
