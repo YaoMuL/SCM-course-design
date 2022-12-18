@@ -1,16 +1,18 @@
 #include "timer.h"
+/* 系统频率1Mhz */
 
-/* timer0 */
+/* timer0--8位 */
 void timer0_init(void)
 {
-	cli();								//关闭全局中断
-	TIMSK0 |= _BV(T0IE0)				//开溢出中断
-	TCNT0 = 6;							//初值6，250ms
-	TCCR0B |= _BV(CS02) | _BV(CS00)		//1024分频 约1ms
-	cli();								//打开全局中断
+	cli();												//关闭全局中断
+	TCCR0B |= ( _BV(CS02) | _BV(CS00) )					//1024分频 约1ms
+	TCCR0A |= ( _BV(WGM02) | _BV(WGM01) | _BV(WGM00) );	//定时器普通模式
+	TCNT0 = 6;											//初值6，250ms
+	TIMSK0 |= _BV(T0IE0)								//开溢出中断
+	cli();												//打开全局中断
 }
 
-/* timer1 */
+/* timer1--16位 */
 void pwm1_init(void)
 {
 	cli();								//关闭全局中断

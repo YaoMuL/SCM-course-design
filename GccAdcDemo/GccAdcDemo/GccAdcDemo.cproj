@@ -111,6 +111,12 @@
     <Compile Include="user\adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="user\display.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="user\display.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="user" />

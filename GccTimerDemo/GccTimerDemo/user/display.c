@@ -1,8 +1,5 @@
 #include "display.h"
 unsigned char dispcode[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};//共阳数码管
-unsigned char shiwei;
-unsigned char gewei;
-unsigned int Cnt=0,Cnt2=0,num=0,num1;
 /* 在这里低电平选中，上电时候，先关闭数码管 */
 void display_init(void)
 {

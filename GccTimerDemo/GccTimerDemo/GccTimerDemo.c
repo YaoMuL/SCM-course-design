@@ -16,7 +16,7 @@ int main(void)
 	hc595_init();
 	/* 数码管初始化 */
 	display_init();
-	
+	/* 将定时器1比较输出连接的引脚配置成输出模式 */
 	DDRB = (1<<PB1) | (1<<PB2); //pwm OC1A ,PB2-LED
 	/* 定时器0初始化 */
 	timer0_init();
@@ -35,9 +35,10 @@ int main(void)
 /*******TIMER0中断服务程序（秒表功能）***********/
 ISR(TIMER0_OVF_vect)
 {
+	/* 每250ms进入中断 */
 	TCNT0 = 6; //重装载计数值
 	Cnt++;
-	if(Cnt > 3)
+	if(Cnt > 3)//num 每隔 250ms*4=1s 更新一次
 	{
 		num++;
 		Cnt = 0;
