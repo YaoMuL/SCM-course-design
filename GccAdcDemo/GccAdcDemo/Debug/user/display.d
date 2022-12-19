@@ -1,4 +1,4 @@
-GccAdcDemo.d GccAdcDemo.o: .././GccAdcDemo.c ../user/adc.h \
+user/display.d user/display.o: ../user/display.c ../user/display.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -14,9 +14,9 @@ GccAdcDemo.d GccAdcDemo.o: .././GccAdcDemo.c ../user/adc.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h \
- ../user/display.h ../user/hc595.h
+ ../user/hc595.h
 
-../user/adc.h:
+../user/display.h:
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -47,7 +47,5 @@ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\uti
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h:
-
-../user/display.h:
 
 ../user/hc595.h:

@@ -1,17 +1,36 @@
 /*
- * GccAdcDemo.c
+ * GccTimerDemo.c
  *
- * Created: 2022/12/18 14:30:16
- *  Author: 23860
+ * Created: 2022/12/15 
+ *  Author: 2409
  */ 
-
-
 #include "adc.h"
+unsigned int temp,temp2;
 
 int main(void)
 {
-    while(1)
-    {
-        //TODO:: Please write your application code 
-    }
+	/* 数码管初始化 */
+	display_init();
+	/* 595初始化 */
+	hc595_init();
+	/* adc初始化 */
+	adc_init();
+	
+	while(1)
+	{
+		cli();
+		adc_display(temp);//动态显示数码管
+		sei();
+	}
+}
+/* 中断服务函数 */
+ISR(ADC_vect)
+{
+	//delay_1ms(1);
+	//temp=ADCH;//读取转化的数据
+	temp = ADCL>>6; 
+	temp2 = ADCH;
+	temp2 <<= 2;
+	temp =temp + temp2;   //10bit
+	ADCSRA|=0X40;//重启ADC，设置ADCSRA的ADATA和连续转换模式时不用
 }

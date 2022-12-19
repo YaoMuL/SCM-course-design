@@ -39,7 +39,9 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../GccAdcDemo.c \
-../user/adc.c
+../user/adc.c \
+../user/display.c \
+../user/hc595.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,19 +52,27 @@ ASM_SRCS +=
 
 OBJS +=  \
 GccAdcDemo.o \
-user/adc.o
+user/adc.o \
+user/display.o \
+user/hc595.o
 
 OBJS_AS_ARGS +=  \
 GccAdcDemo.o \
-user/adc.o
+user/adc.o \
+user/display.o \
+user/hc595.o
 
 C_DEPS +=  \
 GccAdcDemo.d \
-user/adc.d
+user/adc.d \
+user/display.d \
+user/hc595.d
 
 C_DEPS_AS_ARGS +=  \
 GccAdcDemo.d \
-user/adc.d
+user/adc.d \
+user/display.d \
+user/hc595.d
 
 OUTPUT_FILE_PATH +=GccAdcDemo.elf
 
@@ -78,6 +88,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

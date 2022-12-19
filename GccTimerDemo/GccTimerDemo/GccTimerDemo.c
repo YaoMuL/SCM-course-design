@@ -1,8 +1,8 @@
 /*
  * GccTimerDemo.c
  *
- * Created: 2022/12/15 16:02:42
- *  Author: lxr
+ * Created: 2022/12/15 
+ *  Author: 2409
  */ 
 #include "hc595.h"
 #include "display.h"

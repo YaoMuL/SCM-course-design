@@ -1,13 +1,10 @@
-#include "display.h"
 #include "adc.h"
 
-void display(unsigned int smg)
+void adc_init(void)
 {
-	smg = smg * 0.48875855;
-	bai = smg/100;
-	shi = (smg%100)/10;
-	ge  = smg%100;
-	
-	hc595out(disp)
-	
+	cli();
+	ADCSRA =0;//关闭ADC
+	ADMUX = 0X27;// 0010 0111 左对齐，参考电压AREF.通道7
+	ADCSRA = (1<<ADEN)|(1<<ADSC)|(1<<ADIE)|(7);//使能adc和中断，预分频128，启动ADC,不设置连续转化模式
+	sei();
 }
