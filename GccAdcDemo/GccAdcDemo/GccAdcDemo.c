@@ -1,9 +1,6 @@
 /*
- * GccTimerDemo.c
- *
- * Created: 2022/12/15 
- *  Author: 2409
- */ 
+*adc功能，参考电压AREF为2.5v
+*/
 #include "adc.h"
 unsigned int temp,temp2;
 
@@ -31,6 +28,6 @@ ISR(ADC_vect)
 	temp = ADCL>>6; 
 	temp2 = ADCH;
 	temp2 <<= 2;
-	temp =temp + temp2;   //10bit
+	temp += temp2;   //10bit
 	ADCSRA|=0X40;//重启ADC，设置ADCSRA的ADATA和连续转换模式时不用
 }

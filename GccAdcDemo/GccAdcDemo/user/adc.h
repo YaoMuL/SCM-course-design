@@ -8,6 +8,8 @@
 #include "display.h"
 #include "hc595.h"
 /* ºê¶¨Òå */
+
 /* º¯Êý */
 void adc_init(void);
+
 #endif

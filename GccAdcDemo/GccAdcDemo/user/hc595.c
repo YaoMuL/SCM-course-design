@@ -4,9 +4,9 @@
 //595初始化
 void hc595_init(void)
 {
-	//DDRC = (1<<PC0) | (1<<PC4) | (1<<PC5); //缓冲器控制
+	DDRC = (1<<PC0) | (1<<PC4) | (1<<PC5); //输出端口
 	//hc595_ser = 1;
-	hc595rck_res();
+	hc595rck_set();
 	hc595clk_res();
 }
 

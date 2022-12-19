@@ -9,13 +9,13 @@
 /* 宏定义 */
 //与定时器显示时间功能的位选逻辑相反
 #define SMG2_ON()	( PORTD |= _BV(PD7) )
-#define SMG2_OFF()	( PORTD &= _BV(PD7) )
+#define SMG2_OFF()	( PORTD &= ~_BV(PD7) )
 
 #define SMG3_ON()	( PORTD |= _BV(PD6) )
-#define SMG3_OFF()	( PORTD &= _BV(PD6) )
+#define SMG3_OFF()	( PORTD &= ~_BV(PD6) )
 
 #define SMG4_ON()	( PORTD |= _BV(PD5) )
-#define SMG4_OFF()	( PORTD &= _BV(PD5) )
+#define SMG4_OFF()	( PORTD &= ~_BV(PD5) )
 
 #define LED1		1
 #define LED2		2
@@ -26,7 +26,7 @@ void display_init(void);
 void display(unsigned char Location,unsigned char num);
 void adc_display(unsigned int smg);
 /* other */
-extern unsigned char dispcode1[];//共阳数码管
-extern unsigned char dispcode2[];//共阳数码管
+extern unsigned char dispcode1[];//共阳带小数点
+extern unsigned char dispcode2[];//共阳无小数点
 
 #endif

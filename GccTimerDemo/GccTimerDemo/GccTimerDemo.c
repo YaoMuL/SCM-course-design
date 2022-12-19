@@ -1,14 +1,12 @@
 /*
- * GccTimerDemo.c
- *
- * Created: 2022/12/15 
- *  Author: 2409
- */ 
+*1、定时器0实现秒表
+*2、定时器1的pwm功能:1k，25%占空比相位修正PWM
+*/
 #include "hc595.h"
 #include "display.h"
 #include "timer.h"
-unsigned char shiwei;
-unsigned char gewei;
+unsigned char shiwei = 0;
+unsigned char gewei = 0;
 unsigned int Cnt=0,Cnt2=0,num=0,num1;
 int main(void)
 {
@@ -29,6 +27,15 @@ int main(void)
 		gewei  = num%10;
 		display_time(LED1,shiwei);
 		display_time(LED2,gewei);
+		//hc595out(dispcode2[shiwei]);
+		//SMG1_ON();
+		//_delay_us(2000);
+		//SMG1_OFF();
+		
+		//hc595out(dispcode2[gewei]);
+		//SMG2_ON();
+		//_delay_us(2000);
+		//SMG2_OFF();
 	}
 }
 
