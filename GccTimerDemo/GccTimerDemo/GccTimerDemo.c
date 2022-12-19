@@ -50,14 +50,15 @@ ISR(TIMER0_OVF_vect)
 }
 
 /*******TIMER1中断服务程序（PWM功能）***********/
+/* 1k，25%占空比相位修正PWM */
 ISR(TIMER1_COMPA_vect)
 {
 	OCR1A = 125; //重装载计数值
 	ICR1  = 500;
-	Cnt2++；
+	Cnt2++;
 	if(Cnt2 > 1000)
 	{
 		Cnt2 = 0;
 	}
-	PORTB ^= (1<<PB2);
+	PORTB ^= (1<<PB1);//PWM波形输出到端口
 }

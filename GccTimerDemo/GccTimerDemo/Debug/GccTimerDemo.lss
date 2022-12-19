@@ -3,56 +3,60 @@ GccTimerDemo.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000d0  00000000  00000000  00000054  2**1
+  0 .data         0000000a  00800100  0000027e  00000312  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000027e  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      00000030  00000000  00000000  00000124  2**0
+  2 .bss          0000000a  0080010a  0080010a  0000031c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000031c  2**0
                   CONTENTS, READONLY
-  2 .debug_aranges 00000028  00000000  00000000  00000154  2**0
+  4 .debug_aranges 000000b8  00000000  00000000  0000034c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000171  00000000  00000000  0000017c  2**0
+  5 .debug_info   00000525  00000000  00000000  00000404  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000000fe  00000000  00000000  000002ed  2**0
+  6 .debug_abbrev 00000334  00000000  00000000  00000929  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   0000013a  00000000  00000000  000003eb  2**0
+  7 .debug_line   000003af  00000000  00000000  00000c5d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000048  00000000  00000000  00000528  2**2
+  8 .debug_frame  00000130  00000000  00000000  0000100c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000017d  00000000  00000000  00000570  2**0
+  9 .debug_str    00000259  00000000  00000000  0000113c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000049  00000000  00000000  000006ed  2**0
+ 10 .debug_loc    000001d6  00000000  00000000  00001395  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000018  00000000  00000000  00000736  2**0
+ 11 .debug_ranges 00000078  00000000  00000000  0000156b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
-   2:	52 c0       	rjmp	.+164    	; 0xa8 <__vector_1>
-   4:	27 c0       	rjmp	.+78     	; 0x54 <__bad_interrupt>
-   6:	26 c0       	rjmp	.+76     	; 0x54 <__bad_interrupt>
-   8:	25 c0       	rjmp	.+74     	; 0x54 <__bad_interrupt>
-   a:	24 c0       	rjmp	.+72     	; 0x54 <__bad_interrupt>
-   c:	23 c0       	rjmp	.+70     	; 0x54 <__bad_interrupt>
-   e:	22 c0       	rjmp	.+68     	; 0x54 <__bad_interrupt>
-  10:	21 c0       	rjmp	.+66     	; 0x54 <__bad_interrupt>
-  12:	20 c0       	rjmp	.+64     	; 0x54 <__bad_interrupt>
-  14:	1f c0       	rjmp	.+62     	; 0x54 <__bad_interrupt>
-  16:	1e c0       	rjmp	.+60     	; 0x54 <__bad_interrupt>
-  18:	1d c0       	rjmp	.+58     	; 0x54 <__bad_interrupt>
-  1a:	1c c0       	rjmp	.+56     	; 0x54 <__bad_interrupt>
-  1c:	1b c0       	rjmp	.+54     	; 0x54 <__bad_interrupt>
-  1e:	1a c0       	rjmp	.+52     	; 0x54 <__bad_interrupt>
-  20:	19 c0       	rjmp	.+50     	; 0x54 <__bad_interrupt>
-  22:	18 c0       	rjmp	.+48     	; 0x54 <__bad_interrupt>
-  24:	17 c0       	rjmp	.+46     	; 0x54 <__bad_interrupt>
-  26:	16 c0       	rjmp	.+44     	; 0x54 <__bad_interrupt>
-  28:	15 c0       	rjmp	.+42     	; 0x54 <__bad_interrupt>
-  2a:	14 c0       	rjmp	.+40     	; 0x54 <__bad_interrupt>
-  2c:	13 c0       	rjmp	.+38     	; 0x54 <__bad_interrupt>
-  2e:	12 c0       	rjmp	.+36     	; 0x54 <__bad_interrupt>
-  30:	11 c0       	rjmp	.+34     	; 0x54 <__bad_interrupt>
-  32:	10 c0       	rjmp	.+32     	; 0x54 <__bad_interrupt>
+   2:	33 c0       	rjmp	.+102    	; 0x6a <__bad_interrupt>
+   4:	32 c0       	rjmp	.+100    	; 0x6a <__bad_interrupt>
+   6:	31 c0       	rjmp	.+98     	; 0x6a <__bad_interrupt>
+   8:	30 c0       	rjmp	.+96     	; 0x6a <__bad_interrupt>
+   a:	2f c0       	rjmp	.+94     	; 0x6a <__bad_interrupt>
+   c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
+   e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
+  10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
+  12:	2b c0       	rjmp	.+86     	; 0x6a <__bad_interrupt>
+  14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
+  16:	8a c0       	rjmp	.+276    	; 0x12c <__vector_11>
+  18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
+  1a:	27 c0       	rjmp	.+78     	; 0x6a <__bad_interrupt>
+  1c:	26 c0       	rjmp	.+76     	; 0x6a <__bad_interrupt>
+  1e:	25 c0       	rjmp	.+74     	; 0x6a <__bad_interrupt>
+  20:	53 c0       	rjmp	.+166    	; 0xc8 <__vector_16>
+  22:	23 c0       	rjmp	.+70     	; 0x6a <__bad_interrupt>
+  24:	22 c0       	rjmp	.+68     	; 0x6a <__bad_interrupt>
+  26:	21 c0       	rjmp	.+66     	; 0x6a <__bad_interrupt>
+  28:	20 c0       	rjmp	.+64     	; 0x6a <__bad_interrupt>
+  2a:	1f c0       	rjmp	.+62     	; 0x6a <__bad_interrupt>
+  2c:	1e c0       	rjmp	.+60     	; 0x6a <__bad_interrupt>
+  2e:	1d c0       	rjmp	.+58     	; 0x6a <__bad_interrupt>
+  30:	1c c0       	rjmp	.+56     	; 0x6a <__bad_interrupt>
+  32:	1b c0       	rjmp	.+54     	; 0x6a <__bad_interrupt>
 
 00000034 <__ctors_end>:
   34:	11 24       	eor	r1, r1
@@ -62,152 +66,455 @@ Disassembly of section .text:
   3c:	de bf       	out	0x3e, r29	; 62
   3e:	cd bf       	out	0x3d, r28	; 61
 
-00000040 <__do_clear_bss>:
-  40:	21 e0       	ldi	r18, 0x01	; 1
+00000040 <__do_copy_data>:
+  40:	11 e0       	ldi	r17, 0x01	; 1
   42:	a0 e0       	ldi	r26, 0x00	; 0
   44:	b1 e0       	ldi	r27, 0x01	; 1
-  46:	01 c0       	rjmp	.+2      	; 0x4a <.do_clear_bss_start>
+  46:	ee e7       	ldi	r30, 0x7E	; 126
+  48:	f2 e0       	ldi	r31, 0x02	; 2
+  4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
+  4c:	05 90       	lpm	r0, Z+
+  4e:	0d 92       	st	X+, r0
+  50:	aa 30       	cpi	r26, 0x0A	; 10
+  52:	b1 07       	cpc	r27, r17
+  54:	d9 f7       	brne	.-10     	; 0x4c <__do_copy_data+0xc>
 
-00000048 <.do_clear_bss_loop>:
-  48:	1d 92       	st	X+, r1
+00000056 <__do_clear_bss>:
+  56:	21 e0       	ldi	r18, 0x01	; 1
+  58:	aa e0       	ldi	r26, 0x0A	; 10
+  5a:	b1 e0       	ldi	r27, 0x01	; 1
+  5c:	01 c0       	rjmp	.+2      	; 0x60 <.do_clear_bss_start>
 
-0000004a <.do_clear_bss_start>:
-  4a:	a0 30       	cpi	r26, 0x00	; 0
-  4c:	b2 07       	cpc	r27, r18
-  4e:	e1 f7       	brne	.-8      	; 0x48 <.do_clear_bss_loop>
-  50:	02 d0       	rcall	.+4      	; 0x56 <main>
-  52:	3c c0       	rjmp	.+120    	; 0xcc <_exit>
+0000005e <.do_clear_bss_loop>:
+  5e:	1d 92       	st	X+, r1
 
-00000054 <__bad_interrupt>:
-  54:	d5 cf       	rjmp	.-86     	; 0x0 <__vectors>
+00000060 <.do_clear_bss_start>:
+  60:	a4 31       	cpi	r26, 0x14	; 20
+  62:	b2 07       	cpc	r27, r18
+  64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
+  66:	02 d0       	rcall	.+4      	; 0x6c <main>
+  68:	08 c1       	rjmp	.+528    	; 0x27a <_exit>
 
-00000056 <main>:
+0000006a <__bad_interrupt>:
+  6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
 
-/* _BV()是把1左移N位的函数 */
-
+0000006c <main>:
+unsigned char gewei;
+unsigned int Cnt=0,Cnt2=0,num=0,num1;
 int main(void)
 {
-	DDRB=(1<<PB6)|(1<<PB7);				// 端口B方向,PB6和PB7为输出
-  56:	80 ec       	ldi	r24, 0xC0	; 192
-  58:	84 b9       	out	0x04, r24	; 4
-	//DDRC=(1<<PC0)|(1<<PC4)|(1<<PC5);	// 输出 PC4-LED
-	DDRD=(PD2>>1)|(1<<PD5)|(1<<PD6);	// Key,PD2输入,PD5输出
-  5a:	81 e6       	ldi	r24, 0x61	; 97
-  5c:	8a b9       	out	0x0a, r24	; 10
-	
-	
-	//DDRB = 0xFE;
-	//PORTD=(1<<PD2);					// 上拉
-	PORTD=(1<<PD5)|(1<<PD6);		// 输出1
-  5e:	80 e6       	ldi	r24, 0x60	; 96
-  60:	8b b9       	out	0x0b, r24	; 11
-	
-	cli();			//关闭全局中断
-  62:	f8 94       	cli
-	//EICRA&=~_BV(ISC01);
-	//EIMSK|=_BV(INT0);		// 外部中断0使能
-	//EIFR|=_BV(INTF0);		// 清中断标志,写1
-	
-	// INT0下降沿
-	EICRA&=~_BV(ISC00);		// 0 , 下降沿产生中断
-  64:	e9 e6       	ldi	r30, 0x69	; 105
-  66:	f0 e0       	ldi	r31, 0x00	; 0
-  68:	80 81       	ld	r24, Z
-  6a:	8e 7f       	andi	r24, 0xFE	; 254
-  6c:	80 83       	st	Z, r24
-	EICRA|=_BV(ISC01);		// 1
-  6e:	80 81       	ld	r24, Z
-  70:	82 60       	ori	r24, 0x02	; 2
-  72:	80 83       	st	Z, r24
-	EIMSK |=_BV(INT0);		// 使能
-  74:	e8 9a       	sbi	0x1d, 0	; 29
-	EIFR|=_BV(INTF0);		// 标志位
-  76:	e0 9a       	sbi	0x1c, 0	; 28
-	// 电平变化中断，实验ok，sim不行
-	//PCICR|=_BV(PCIE2);		// 电平变化中断使能
-	//PCIFR|=_BV(PCIF2);		// 标志位清除
-	//PCMSK2|=_BV(PCINT18);	//使能
-	
-	sei();			//开启全局中断
-  78:	78 94       	sei
+	/* 595初始化 */
+	hc595_init();
+  6c:	b3 d0       	rcall	.+358    	; 0x1d4 <hc595_init>
+	/* 数码管初始化 */
+	display_init();
+  6e:	90 d0       	rcall	.+288    	; 0x190 <display_init>
+	/* 将定时器1比较输出连接的引脚配置成输出模式 */
+	DDRB = (1<<PB1) | (1<<PB2); //pwm OC1A ,PB2-LED
+  70:	86 e0       	ldi	r24, 0x06	; 6
+  72:	84 b9       	out	0x04, r24	; 4
+	/* 定时器0初始化 */
+	timer0_init();
+  74:	c5 d0       	rcall	.+394    	; 0x200 <timer0_init>
+	/* 定时器1（pwm）初始化 */
+	pwm1_init();
+  76:	d4 d0       	rcall	.+424    	; 0x220 <pwm1_init>
 	
 	while(1)
 	{
-		//TODO:: Please write your application code
-		PORTB|=_BV(PB6);		//	1s
-  7a:	2e 9a       	sbi	0x05, 6	; 5
-		PORTB&=~_BV(PB7);
-  7c:	2f 98       	cbi	0x05, 7	; 5
+		shiwei = num/10;
+  78:	40 91 0a 01 	lds	r20, 0x010A
+  7c:	50 91 0b 01 	lds	r21, 0x010B
+  80:	9a 01       	movw	r18, r20
+  82:	ad ec       	ldi	r26, 0xCD	; 205
+  84:	bc ec       	ldi	r27, 0xCC	; 204
+  86:	ed d0       	rcall	.+474    	; 0x262 <__umulhisi3>
+  88:	bc 01       	movw	r22, r24
+  8a:	76 95       	lsr	r23
+  8c:	67 95       	ror	r22
+  8e:	76 95       	lsr	r23
+  90:	67 95       	ror	r22
+  92:	76 95       	lsr	r23
+  94:	67 95       	ror	r22
+  96:	60 93 10 01 	sts	0x0110, r22
+		gewei  = num%10;
+  9a:	9b 01       	movw	r18, r22
+  9c:	22 0f       	add	r18, r18
+  9e:	33 1f       	adc	r19, r19
+  a0:	cb 01       	movw	r24, r22
+  a2:	88 0f       	add	r24, r24
+  a4:	99 1f       	adc	r25, r25
+  a6:	88 0f       	add	r24, r24
+  a8:	99 1f       	adc	r25, r25
+  aa:	88 0f       	add	r24, r24
+  ac:	99 1f       	adc	r25, r25
+  ae:	82 0f       	add	r24, r18
+  b0:	93 1f       	adc	r25, r19
+  b2:	48 1b       	sub	r20, r24
+  b4:	59 0b       	sbc	r21, r25
+  b6:	40 93 13 01 	sts	0x0113, r20
+		display_time(LED1,shiwei);
+  ba:	81 e0       	ldi	r24, 0x01	; 1
+  bc:	6c d0       	rcall	.+216    	; 0x196 <display_time>
+		display_time(LED2,gewei);
+  be:	60 91 13 01 	lds	r22, 0x0113
+  c2:	82 e0       	ldi	r24, 0x02	; 2
+  c4:	68 d0       	rcall	.+208    	; 0x196 <display_time>
+  c6:	d8 cf       	rjmp	.-80     	; 0x78 <main+0xc>
+
+000000c8 <__vector_16>:
+	}
+}
+
+/*******TIMER0中断服务程序（秒表功能）***********/
+ISR(TIMER0_OVF_vect)
+{
+  c8:	1f 92       	push	r1
+  ca:	0f 92       	push	r0
+  cc:	0f b6       	in	r0, 0x3f	; 63
+  ce:	0f 92       	push	r0
+  d0:	11 24       	eor	r1, r1
+  d2:	8f 93       	push	r24
+  d4:	9f 93       	push	r25
+	/* 每250ms进入中断 */
+	TCNT0 = 6; //重装载计数值
+  d6:	86 e0       	ldi	r24, 0x06	; 6
+  d8:	86 bd       	out	0x26, r24	; 38
+	Cnt++;
+  da:	80 91 0e 01 	lds	r24, 0x010E
+  de:	90 91 0f 01 	lds	r25, 0x010F
+  e2:	01 96       	adiw	r24, 0x01	; 1
+  e4:	90 93 0f 01 	sts	0x010F, r25
+  e8:	80 93 0e 01 	sts	0x010E, r24
+	if(Cnt > 3)//num 每隔 250ms*4=1s 更新一次
+  ec:	04 97       	sbiw	r24, 0x04	; 4
+  ee:	68 f0       	brcs	.+26     	; 0x10a <__vector_16+0x42>
+	{
+		num++;
+  f0:	80 91 0a 01 	lds	r24, 0x010A
+  f4:	90 91 0b 01 	lds	r25, 0x010B
+  f8:	01 96       	adiw	r24, 0x01	; 1
+  fa:	90 93 0b 01 	sts	0x010B, r25
+  fe:	80 93 0a 01 	sts	0x010A, r24
+		Cnt = 0;
+ 102:	10 92 0f 01 	sts	0x010F, r1
+ 106:	10 92 0e 01 	sts	0x010E, r1
+	}
+	if(num > 60 )
+ 10a:	80 91 0a 01 	lds	r24, 0x010A
+ 10e:	90 91 0b 01 	lds	r25, 0x010B
+ 112:	cd 97       	sbiw	r24, 0x3d	; 61
+ 114:	20 f0       	brcs	.+8      	; 0x11e <__vector_16+0x56>
+	{
+		num = 0;
+ 116:	10 92 0b 01 	sts	0x010B, r1
+ 11a:	10 92 0a 01 	sts	0x010A, r1
+	}
+}
+ 11e:	9f 91       	pop	r25
+ 120:	8f 91       	pop	r24
+ 122:	0f 90       	pop	r0
+ 124:	0f be       	out	0x3f, r0	; 63
+ 126:	0f 90       	pop	r0
+ 128:	1f 90       	pop	r1
+ 12a:	18 95       	reti
+
+0000012c <__vector_11>:
+
+/*******TIMER1中断服务程序（PWM功能）***********/
+/* 1k，25%占空比相位修正PWM */
+ISR(TIMER1_COMPA_vect)
+{
+ 12c:	1f 92       	push	r1
+ 12e:	0f 92       	push	r0
+ 130:	0f b6       	in	r0, 0x3f	; 63
+ 132:	0f 92       	push	r0
+ 134:	11 24       	eor	r1, r1
+ 136:	2f 93       	push	r18
+ 138:	8f 93       	push	r24
+ 13a:	9f 93       	push	r25
+	OCR1A = 125; //重装载计数值
+ 13c:	8d e7       	ldi	r24, 0x7D	; 125
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	90 93 89 00 	sts	0x0089, r25
+ 144:	80 93 88 00 	sts	0x0088, r24
+	ICR1  = 500;
+ 148:	84 ef       	ldi	r24, 0xF4	; 244
+ 14a:	91 e0       	ldi	r25, 0x01	; 1
+ 14c:	90 93 87 00 	sts	0x0087, r25
+ 150:	80 93 86 00 	sts	0x0086, r24
+	Cnt2++;
+ 154:	80 91 0c 01 	lds	r24, 0x010C
+ 158:	90 91 0d 01 	lds	r25, 0x010D
+ 15c:	01 96       	adiw	r24, 0x01	; 1
+	if(Cnt2 > 1000)
+ 15e:	89 3e       	cpi	r24, 0xE9	; 233
+ 160:	23 e0       	ldi	r18, 0x03	; 3
+ 162:	92 07       	cpc	r25, r18
+ 164:	28 f4       	brcc	.+10     	; 0x170 <__vector_11+0x44>
+/* 1k，25%占空比相位修正PWM */
+ISR(TIMER1_COMPA_vect)
+{
+	OCR1A = 125; //重装载计数值
+	ICR1  = 500;
+	Cnt2++;
+ 166:	90 93 0d 01 	sts	0x010D, r25
+ 16a:	80 93 0c 01 	sts	0x010C, r24
+ 16e:	04 c0       	rjmp	.+8      	; 0x178 <__vector_11+0x4c>
+	if(Cnt2 > 1000)
+	{
+		Cnt2 = 0;
+ 170:	10 92 0d 01 	sts	0x010D, r1
+ 174:	10 92 0c 01 	sts	0x010C, r1
+	}
+	PORTB ^= (1<<PB1);//PWM波形输出到端口
+ 178:	95 b1       	in	r25, 0x05	; 5
+ 17a:	82 e0       	ldi	r24, 0x02	; 2
+ 17c:	89 27       	eor	r24, r25
+ 17e:	85 b9       	out	0x05, r24	; 5
+}
+ 180:	9f 91       	pop	r25
+ 182:	8f 91       	pop	r24
+ 184:	2f 91       	pop	r18
+ 186:	0f 90       	pop	r0
+ 188:	0f be       	out	0x3f, r0	; 63
+ 18a:	0f 90       	pop	r0
+ 18c:	1f 90       	pop	r1
+ 18e:	18 95       	reti
+
+00000190 <display_init>:
+unsigned char dispcode[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};//共阳数码管
+/* 在这里低电平选中，上电时候，先关闭数码管 */
+void display_init(void)
+{
+		//DDRD = (1<<PD4) | (1<<PD7); 
+		SMG1_OFF();
+ 190:	5c 9a       	sbi	0x0b, 4	; 11
+		SMG2_OFF();
+ 192:	5f 9a       	sbi	0x0b, 7	; 11
+ 194:	08 95       	ret
+
+00000196 <display_time>:
+}
+//时间显示函数
+void display_time(unsigned char Location,unsigned char num)
+{
+	switch(Location)
+ 196:	81 30       	cpi	r24, 0x01	; 1
+ 198:	19 f0       	breq	.+6      	; 0x1a0 <display_time+0xa>
+ 19a:	82 30       	cpi	r24, 0x02	; 2
+ 19c:	51 f0       	breq	.+20     	; 0x1b2 <display_time+0x1c>
+ 19e:	13 c0       	rjmp	.+38     	; 0x1c6 <display_time+0x30>
+	{
+		case LED1:SMG1_ON();_delay_us(1000);SMG1_OFF();break;
+ 1a0:	5c 98       	cbi	0x0b, 4	; 11
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  7e:	2f e3       	ldi	r18, 0x3F	; 63
-  80:	8d e0       	ldi	r24, 0x0D	; 13
-  82:	93 e0       	ldi	r25, 0x03	; 3
-  84:	21 50       	subi	r18, 0x01	; 1
-  86:	80 40       	sbci	r24, 0x00	; 0
-  88:	90 40       	sbci	r25, 0x00	; 0
-  8a:	e1 f7       	brne	.-8      	; 0x84 <main+0x2e>
-  8c:	00 c0       	rjmp	.+0      	; 0x8e <main+0x38>
-  8e:	00 00       	nop
-		_delay_us(1000000);		//
-		PORTB&=~_BV(PB6);		//
-  90:	2e 98       	cbi	0x05, 6	; 5
-		PORTB|=_BV(PB7);
-  92:	2f 9a       	sbi	0x05, 7	; 5
-  94:	2f e3       	ldi	r18, 0x3F	; 63
-  96:	8d e0       	ldi	r24, 0x0D	; 13
-  98:	93 e0       	ldi	r25, 0x03	; 3
-  9a:	21 50       	subi	r18, 0x01	; 1
-  9c:	80 40       	sbci	r24, 0x00	; 0
-  9e:	90 40       	sbci	r25, 0x00	; 0
-  a0:	e1 f7       	brne	.-8      	; 0x9a <main+0x44>
-  a2:	00 c0       	rjmp	.+0      	; 0xa4 <main+0x4e>
-  a4:	00 00       	nop
-  a6:	e9 cf       	rjmp	.-46     	; 0x7a <main+0x24>
+ 1a2:	89 ef       	ldi	r24, 0xF9	; 249
+ 1a4:	90 e0       	ldi	r25, 0x00	; 0
+ 1a6:	01 97       	sbiw	r24, 0x01	; 1
+ 1a8:	f1 f7       	brne	.-4      	; 0x1a6 <display_time+0x10>
+ 1aa:	00 c0       	rjmp	.+0      	; 0x1ac <display_time+0x16>
+ 1ac:	00 00       	nop
+ 1ae:	5c 9a       	sbi	0x0b, 4	; 11
+ 1b0:	0a c0       	rjmp	.+20     	; 0x1c6 <display_time+0x30>
+		case LED2:SMG2_ON();_delay_us(1000);SMG2_OFF();break;
+ 1b2:	8b b1       	in	r24, 0x0b	; 11
+ 1b4:	80 78       	andi	r24, 0x80	; 128
+ 1b6:	8b b9       	out	0x0b, r24	; 11
+ 1b8:	89 ef       	ldi	r24, 0xF9	; 249
+ 1ba:	90 e0       	ldi	r25, 0x00	; 0
+ 1bc:	01 97       	sbiw	r24, 0x01	; 1
+ 1be:	f1 f7       	brne	.-4      	; 0x1bc <display_time+0x26>
+ 1c0:	00 c0       	rjmp	.+0      	; 0x1c2 <display_time+0x2c>
+ 1c2:	00 00       	nop
+ 1c4:	5f 9a       	sbi	0x0b, 7	; 11
+	}
+	hc595out(dispcode[num]);
+ 1c6:	e6 2f       	mov	r30, r22
+ 1c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ca:	e0 50       	subi	r30, 0x00	; 0
+ 1cc:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ce:	80 81       	ld	r24, Z
+ 1d0:	14 d0       	rcall	.+40     	; 0x1fa <hc595out>
+ 1d2:	08 95       	ret
 
-000000a8 <__vector_1>:
-
-
-/*******外部中断0中断服务程序***********/
-ISR(INT0_vect)
-//ISR(PCINT2_vect)
+000001d4 <hc595_init>:
+//595初始化
+void hc595_init(void)
 {
-  a8:	1f 92       	push	r1
-  aa:	0f 92       	push	r0
-  ac:	0f b6       	in	r0, 0x3f	; 63
-  ae:	0f 92       	push	r0
-  b0:	11 24       	eor	r1, r1
-  b2:	8f 93       	push	r24
-  b4:	9f 93       	push	r25
-	//num++;
-	//if(num>600) num=0;
-	
-	//PORTC^=_BV(PC4); 取反
-	//PORTD^=(1<<LED);
-	PORTD^=_BV(LED);
-  b6:	9b b1       	in	r25, 0x0b	; 11
-  b8:	80 e2       	ldi	r24, 0x20	; 32
-  ba:	89 27       	eor	r24, r25
-  bc:	8b b9       	out	0x0b, r24	; 11
-	//PORTD&=~_BV(PD5);
-	
-	//PCIFR|=_BV(PCIF2);		// 标志位清除
-	//EIFR |=1;
-	//PCIFR|=_BV(PCIF0);	// 置位，清中断标志(软件自动清)
-  be:	9f 91       	pop	r25
-  c0:	8f 91       	pop	r24
-  c2:	0f 90       	pop	r0
-  c4:	0f be       	out	0x3f, r0	; 63
-  c6:	0f 90       	pop	r0
-  c8:	1f 90       	pop	r1
-  ca:	18 95       	reti
+	//DDRC = (1<<PC0) | (1<<PC4) | (1<<PC5); //缓冲器控制
+	//hc595_ser = 1;
+	hc595rck_res();
+ 1d4:	44 98       	cbi	0x08, 4	; 8
+	hc595clk_res();
+ 1d6:	45 98       	cbi	0x08, 5	; 8
+ 1d8:	08 95       	ret
 
-000000cc <_exit>:
-  cc:	f8 94       	cli
+000001da <hc595_en>:
+}
 
-000000ce <__stop_program>:
-  ce:	ff cf       	rjmp	.-2      	; 0xce <__stop_program>
+//锁存输出
+void hc595_en(void)
+{
+	hc595rck_res();	//锁存低电平
+ 1da:	44 98       	cbi	0x08, 4	; 8
+	hc595rck_set();	//所存端产生上升沿跳变
+ 1dc:	44 9a       	sbi	0x08, 4	; 8
+	hc595rck_res();	//为下一次做准备
+ 1de:	44 98       	cbi	0x08, 4	; 8
+ 1e0:	08 95       	ret
+
+000001e2 <hc595outbyte>:
+}
+
+//串行输入一个字节
+void hc595outbyte(unsigned char disdata)
+{
+ 1e2:	98 e0       	ldi	r25, 0x08	; 8
+	unsigned char i;//数据移位
+	for(i=0;i<8;i++)//移位8次
+	{
+		if( disdata & 0x80 )//取出最高位，如果为1串行输入1，如果为0串行输入0
+ 1e4:	88 23       	and	r24, r24
+ 1e6:	14 f4       	brge	.+4      	; 0x1ec <hc595outbyte+0xa>
+		{
+			hc595ser_set();
+ 1e8:	40 9a       	sbi	0x08, 0	; 8
+ 1ea:	01 c0       	rjmp	.+2      	; 0x1ee <hc595outbyte+0xc>
+		}
+		else
+		{
+			hc595ser_res();
+ 1ec:	40 98       	cbi	0x08, 0	; 8
+		}
+		disdata <<= 1;
+ 1ee:	88 0f       	add	r24, r24
+		/* SCLK产生上升沿，移位寄存器中的数据整体后移，并接受新的数据(从ser/DS输入) */
+		hc595clk_set();
+ 1f0:	45 9a       	sbi	0x08, 5	; 8
+		hc595clk_res();
+ 1f2:	45 98       	cbi	0x08, 5	; 8
+ 1f4:	91 50       	subi	r25, 0x01	; 1
+
+//串行输入一个字节
+void hc595outbyte(unsigned char disdata)
+{
+	unsigned char i;//数据移位
+	for(i=0;i<8;i++)//移位8次
+ 1f6:	b1 f7       	brne	.-20     	; 0x1e4 <hc595outbyte+0x2>
+		disdata <<= 1;
+		/* SCLK产生上升沿，移位寄存器中的数据整体后移，并接受新的数据(从ser/DS输入) */
+		hc595clk_set();
+		hc595clk_res();
+	}
+}
+ 1f8:	08 95       	ret
+
+000001fa <hc595out>:
+//595输出数据
+void hc595out(unsigned char data)
+{
+	hc595outbyte(data);//串行输入数据
+ 1fa:	f3 df       	rcall	.-26     	; 0x1e2 <hc595outbyte>
+	hc595_en();//数据锁存输出
+ 1fc:	ee df       	rcall	.-36     	; 0x1da <hc595_en>
+ 1fe:	08 95       	ret
+
+00000200 <timer0_init>:
+/* 系统频率1Mhz */
+
+/* timer0--8位 */
+void timer0_init(void)
+{
+	cli();												//关闭全局中断
+ 200:	f8 94       	cli
+	TCCR0B |= ( _BV(CS02) | _BV(CS00) );				//1024分频 约1ms
+ 202:	85 b5       	in	r24, 0x25	; 37
+ 204:	85 60       	ori	r24, 0x05	; 5
+ 206:	85 bd       	out	0x25, r24	; 37
+	TCCR0A |= ( _BV(WGM02) | _BV(WGM01) | _BV(WGM00) );	//定时器普通模式
+ 208:	84 b5       	in	r24, 0x24	; 36
+ 20a:	8b 60       	ori	r24, 0x0B	; 11
+ 20c:	84 bd       	out	0x24, r24	; 36
+	TCNT0 = 6;											//初值6，250ms
+ 20e:	86 e0       	ldi	r24, 0x06	; 6
+ 210:	86 bd       	out	0x26, r24	; 38
+	TIMSK0 |= _BV(TOIE0);								//开溢出中断
+ 212:	ee e6       	ldi	r30, 0x6E	; 110
+ 214:	f0 e0       	ldi	r31, 0x00	; 0
+ 216:	80 81       	ld	r24, Z
+ 218:	81 60       	ori	r24, 0x01	; 1
+ 21a:	80 83       	st	Z, r24
+	cli();												//打开全局中断
+ 21c:	f8 94       	cli
+ 21e:	08 95       	ret
+
+00000220 <pwm1_init>:
+}
+
+/* timer1--16位 */
+void pwm1_init(void)
+{
+	cli();								//关闭全局中断
+ 220:	f8 94       	cli
+	TCCR1B |= _BV(CS10);				//不分频  1M/2/500
+ 222:	e1 e8       	ldi	r30, 0x81	; 129
+ 224:	f0 e0       	ldi	r31, 0x00	; 0
+ 226:	80 81       	ld	r24, Z
+ 228:	81 60       	ori	r24, 0x01	; 1
+ 22a:	80 83       	st	Z, r24
+	TCCR1A |= (1<<WGM11) | (1<<COM1A1);	//相位修正PWM
+ 22c:	a0 e8       	ldi	r26, 0x80	; 128
+ 22e:	b0 e0       	ldi	r27, 0x00	; 0
+ 230:	8c 91       	ld	r24, X
+ 232:	82 68       	ori	r24, 0x82	; 130
+ 234:	8c 93       	st	X, r24
+	TCCR1B |= (1<<WGM13);
+ 236:	80 81       	ld	r24, Z
+ 238:	80 61       	ori	r24, 0x10	; 16
+ 23a:	80 83       	st	Z, r24
+	TIMSK1 |= _BV(OCIE1A);				//A中断
+ 23c:	ef e6       	ldi	r30, 0x6F	; 111
+ 23e:	f0 e0       	ldi	r31, 0x00	; 0
+ 240:	80 81       	ld	r24, Z
+ 242:	82 60       	ori	r24, 0x02	; 2
+ 244:	80 83       	st	Z, r24
+	/* 0-500升序时达到125清零，在500-0降序时达到125置位 */
+	OCR1A  = 125;						//比较寄存器数值
+ 246:	8d e7       	ldi	r24, 0x7D	; 125
+ 248:	90 e0       	ldi	r25, 0x00	; 0
+ 24a:	90 93 89 00 	sts	0x0089, r25
+ 24e:	80 93 88 00 	sts	0x0088, r24
+	ICR1   = 500;						
+ 252:	84 ef       	ldi	r24, 0xF4	; 244
+ 254:	91 e0       	ldi	r25, 0x01	; 1
+ 256:	90 93 87 00 	sts	0x0087, r25
+ 25a:	80 93 86 00 	sts	0x0086, r24
+	cli();								//打开全局中断
+ 25e:	f8 94       	cli
+ 260:	08 95       	ret
+
+00000262 <__umulhisi3>:
+ 262:	a2 9f       	mul	r26, r18
+ 264:	b0 01       	movw	r22, r0
+ 266:	b3 9f       	mul	r27, r19
+ 268:	c0 01       	movw	r24, r0
+ 26a:	a3 9f       	mul	r26, r19
+ 26c:	01 d0       	rcall	.+2      	; 0x270 <__umulhisi3+0xe>
+ 26e:	b2 9f       	mul	r27, r18
+ 270:	70 0d       	add	r23, r0
+ 272:	81 1d       	adc	r24, r1
+ 274:	11 24       	eor	r1, r1
+ 276:	91 1d       	adc	r25, r1
+ 278:	08 95       	ret
+
+0000027a <_exit>:
+ 27a:	f8 94       	cli
+
+0000027c <__stop_program>:
+ 27c:	ff cf       	rjmp	.-2      	; 0x27c <__stop_program>

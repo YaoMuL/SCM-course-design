@@ -12,8 +12,8 @@ void display_time(unsigned char Location,unsigned char num)
 {
 	switch(Location)
 	{
-		case LED1:SMG1_ON();_delay_us(1000);SMG1_OFF;break;
-		case LED2:SMG2_ON();_delay_us(1000);SMG2_OFF;break;
+		case LED1:SMG1_ON();_delay_us(1000);SMG1_OFF();break;
+		case LED2:SMG2_ON();_delay_us(1000);SMG2_OFF();break;
 	}
 	hc595out(dispcode[num]);
 }

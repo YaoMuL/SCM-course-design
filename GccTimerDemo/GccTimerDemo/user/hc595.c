@@ -6,16 +6,16 @@ void hc595_init(void)
 {
 	//DDRC = (1<<PC0) | (1<<PC4) | (1<<PC5); //缓冲器控制
 	//hc595_ser = 1;
-	hc595_rck = 1;
-	hc595_clk = 0;
+	hc595rck_res();
+	hc595clk_res();
 }
 
 //锁存输出
 void hc595_en(void)
 {
-	hc595_rck = 0;	//锁存低电平
-	hc595_rck = 1;	//所存端产生上升沿跳变
-	hc595_rck = 0;	//为下一次做准备
+	hc595rck_res();	//锁存低电平
+	hc595rck_set();	//所存端产生上升沿跳变
+	hc595rck_res();	//为下一次做准备
 }
 
 //串行输入一个字节
@@ -26,16 +26,16 @@ void hc595outbyte(unsigned char disdata)
 	{
 		if( disdata & 0x80 )//取出最高位，如果为1串行输入1，如果为0串行输入0
 		{
-			hc595_ser = 1;
+			hc595ser_set();
 		}
 		else
 		{
-			hc595_ser = 0;
+			hc595ser_res();
 		}
 		disdata <<= 1;
 		/* SCLK产生上升沿，移位寄存器中的数据整体后移，并接受新的数据(从ser/DS输入) */
-		hc595_clk = 1;
-		hc595_clk = 0;
+		hc595clk_set();
+		hc595clk_res();
 	}
 }
 //595输出数据

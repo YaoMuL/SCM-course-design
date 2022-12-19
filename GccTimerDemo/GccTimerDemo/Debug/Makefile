@@ -40,6 +40,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../GccTimerDemo.c \
 ../user/display.c \
+../user/hc595.c \
 ../user/timer.c
 
 
@@ -52,21 +53,25 @@ ASM_SRCS +=
 OBJS +=  \
 GccTimerDemo.o \
 user/display.o \
+user/hc595.o \
 user/timer.o
 
 OBJS_AS_ARGS +=  \
 GccTimerDemo.o \
 user/display.o \
+user/hc595.o \
 user/timer.o
 
 C_DEPS +=  \
 GccTimerDemo.d \
 user/display.d \
+user/hc595.d \
 user/timer.d
 
 C_DEPS_AS_ARGS +=  \
 GccTimerDemo.d \
 user/display.d \
+user/hc595.d \
 user/timer.d
 
 OUTPUT_FILE_PATH +=GccTimerDemo.elf
@@ -83,6 +88,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -6,5 +6,7 @@ GccTimerDemo.c
 
 user\display.c
 
+user\hc595.c
+
 user\timer.c
 

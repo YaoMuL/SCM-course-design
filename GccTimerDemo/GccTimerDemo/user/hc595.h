@@ -10,9 +10,14 @@
 //#define hc595_rck	PC4 //RCK,上升沿锁存输出
 //#define hc595_clk	PC5 //SCLK,上升沿移位时钟
 
-#define hc595_ser	PORTC0 //ser/ds,串行输入数据
-#define hc595_rck	PORTC4 //rck,串行输入数据
-#define hc595_clk	PORTC5 //clk,串行输入数据
+#define hc595ser_set()	( PORTC |= _BV(PC0) ) //ser/ds,串行输入数据
+#define hc595ser_res()	( PORTC &= ~_BV(PC0)) 
+
+#define hc595rck_set()	( PORTC |= _BV(PC4) ) //rck,串行输入数据
+#define hc595rck_res()	( PORTC &= ~_BV(PC4)) 
+
+#define hc595clk_set()	( PORTC |= _BV(PC5) ) //clk,串行输入数据
+#define hc595clk_res()	( PORTC &= ~_BV(PC5))
 /* 函数 */
 void hc595_init(void);
 void hc595_en(void);
