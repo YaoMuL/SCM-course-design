@@ -27,15 +27,6 @@ int main(void)
 		gewei  = num%10;
 		display_time(LED1,shiwei);
 		display_time(LED2,gewei);
-		//hc595out(dispcode2[shiwei]);
-		//SMG1_ON();
-		//_delay_us(2000);
-		//SMG1_OFF();
-		
-		//hc595out(dispcode2[gewei]);
-		//SMG2_ON();
-		//_delay_us(2000);
-		//SMG2_OFF();
 	}
 }
 
