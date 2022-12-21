@@ -12,5 +12,6 @@
 #include "adc.h"
 /* ∫Í∂®“Â */
 void timer0_init(void);
-void pwm1_init(void);
+void pwm_init(void);
+void spwm_init(void);
 #endif

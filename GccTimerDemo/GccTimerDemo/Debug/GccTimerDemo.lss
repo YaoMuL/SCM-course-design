@@ -3,29 +3,29 @@ GccTimerDemo.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000000a  00800100  00000288  0000031c  2**0
+  0 .data         0000000a  00800100  00000280  00000314  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000288  00000000  00000000  00000094  2**1
+  1 .text         00000280  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000008  0080010a  0080010a  00000326  2**0
+  2 .bss          00000008  0080010a  0080010a  0000031e  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000326  2**0
+  3 .comment      00000030  00000000  00000000  0000031e  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 000000b8  00000000  00000000  00000356  2**0
+  4 .debug_aranges 000000b8  00000000  00000000  0000034e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000540  00000000  00000000  0000040e  2**0
+  5 .debug_info   00000540  00000000  00000000  00000406  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000034f  00000000  00000000  0000094e  2**0
+  6 .debug_abbrev 0000034f  00000000  00000000  00000946  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000003af  00000000  00000000  00000c9d  2**0
+  7 .debug_line   000003ae  00000000  00000000  00000c95  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000130  00000000  00000000  0000104c  2**2
+  8 .debug_frame  00000130  00000000  00000000  00001044  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000261  00000000  00000000  0000117c  2**0
+  9 .debug_str    00000261  00000000  00000000  00001174  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000001c1  00000000  00000000  000013dd  2**0
+ 10 .debug_loc    000001c1  00000000  00000000  000013d5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000078  00000000  00000000  0000159e  2**0
+ 11 .debug_ranges 00000078  00000000  00000000  00001596  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,7 +70,7 @@ Disassembly of section .text:
   40:	11 e0       	ldi	r17, 0x01	; 1
   42:	a0 e0       	ldi	r26, 0x00	; 0
   44:	b1 e0       	ldi	r27, 0x01	; 1
-  46:	e8 e8       	ldi	r30, 0x88	; 136
+  46:	e0 e8       	ldi	r30, 0x80	; 128
   48:	f2 e0       	ldi	r31, 0x02	; 2
   4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
   4c:	05 90       	lpm	r0, Z+
@@ -93,7 +93,7 @@ Disassembly of section .text:
   62:	b2 07       	cpc	r27, r18
   64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
   66:	02 d0       	rcall	.+4      	; 0x6c <main>
-  68:	0d c1       	rjmp	.+538    	; 0x284 <_exit>
+  68:	09 c1       	rjmp	.+530    	; 0x27c <_exit>
 
 0000006a <__bad_interrupt>:
   6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
@@ -105,20 +105,20 @@ int main(void)
 {
 	/* 595初始化 */
 	hc595_init();
-  6c:	b9 d0       	rcall	.+370    	; 0x1e0 <hc595_init>
+  6c:	b5 d0       	rcall	.+362    	; 0x1d8 <hc595_init>
 	/* 数码管初始化 */
 	display_init();
-  6e:	90 d0       	rcall	.+288    	; 0x190 <display_init>
+  6e:	8c d0       	rcall	.+280    	; 0x188 <display_init>
 	/* 将定时器1比较输出连接的引脚配置成输出模式 */
 	DDRB = (1<<PB1) | (1<<PB2); //pwm OC1A ,PB2-LED
   70:	86 e0       	ldi	r24, 0x06	; 6
   72:	84 b9       	out	0x04, r24	; 4
 	/* 定时器0初始化 */
 	timer0_init();
-  74:	cd d0       	rcall	.+410    	; 0x210 <timer0_init>
+  74:	c9 d0       	rcall	.+402    	; 0x208 <timer0_init>
 	/* 定时器1（pwm）初始化 */
 	pwm1_init();
-  76:	d9 d0       	rcall	.+434    	; 0x22a <pwm1_init>
+  76:	d5 d0       	rcall	.+426    	; 0x222 <pwm1_init>
 	
 	while(1)
 	{
@@ -128,7 +128,7 @@ int main(void)
   80:	9a 01       	movw	r18, r20
   82:	ad ec       	ldi	r26, 0xCD	; 205
   84:	bc ec       	ldi	r27, 0xCC	; 204
-  86:	f2 d0       	rcall	.+484    	; 0x26c <__umulhisi3>
+  86:	ee d0       	rcall	.+476    	; 0x264 <__umulhisi3>
   88:	bc 01       	movw	r22, r24
   8a:	76 95       	lsr	r23
   8c:	67 95       	ror	r22
@@ -155,11 +155,11 @@ int main(void)
   b6:	40 93 10 01 	sts	0x0110, r20
 		display_time(LED1,shiwei);
   ba:	81 e0       	ldi	r24, 0x01	; 1
-  bc:	6e d0       	rcall	.+220    	; 0x19a <display_time>
+  bc:	6a d0       	rcall	.+212    	; 0x192 <display_time>
 		display_time(LED2,gewei);
   be:	60 91 10 01 	lds	r22, 0x0110
   c2:	82 e0       	ldi	r24, 0x02	; 2
-  c4:	6a d0       	rcall	.+212    	; 0x19a <display_time>
+  c4:	66 d0       	rcall	.+204    	; 0x192 <display_time>
   c6:	d8 cf       	rjmp	.-80     	; 0x78 <main+0xc>
 
 000000c8 <__vector_16>:
@@ -267,260 +267,256 @@ ISR(TIMER1_COMPA_vect)
  170:	10 92 0d 01 	sts	0x010D, r1
  174:	10 92 0c 01 	sts	0x010C, r1
 	}
-	PORTB ^= (1<<PB1);//PWM波形输出到端口
- 178:	95 b1       	in	r25, 0x05	; 5
- 17a:	82 e0       	ldi	r24, 0x02	; 2
- 17c:	89 27       	eor	r24, r25
- 17e:	85 b9       	out	0x05, r24	; 5
+	//PORTB ^= (1<<PB1);//PWM波形输出到端口
 }
- 180:	9f 91       	pop	r25
- 182:	8f 91       	pop	r24
- 184:	2f 91       	pop	r18
- 186:	0f 90       	pop	r0
- 188:	0f be       	out	0x3f, r0	; 63
- 18a:	0f 90       	pop	r0
- 18c:	1f 90       	pop	r1
- 18e:	18 95       	reti
+ 178:	9f 91       	pop	r25
+ 17a:	8f 91       	pop	r24
+ 17c:	2f 91       	pop	r18
+ 17e:	0f 90       	pop	r0
+ 180:	0f be       	out	0x3f, r0	; 63
+ 182:	0f 90       	pop	r0
+ 184:	1f 90       	pop	r1
+ 186:	18 95       	reti
 
-00000190 <display_init>:
+00000188 <display_init>:
 unsigned char dispcode1[]={0x40,0x79,0x24,0x30,0x19,0x12,0x02,0x78,0x00,0x10};//共阳带小数点
 unsigned char dispcode2[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};//共阳无小数点
 /* 在这里低电平选中，上电时候，先关闭数码管 */
 void display_init(void)
 {
 		DDRD = (1<<PD4)|(1<<PD7); //输出口
- 190:	80 e9       	ldi	r24, 0x90	; 144
- 192:	8a b9       	out	0x0a, r24	; 10
+ 188:	80 e9       	ldi	r24, 0x90	; 144
+ 18a:	8a b9       	out	0x0a, r24	; 10
 		SMG1_OFF();
- 194:	5c 9a       	sbi	0x0b, 4	; 11
+ 18c:	5c 9a       	sbi	0x0b, 4	; 11
 		SMG2_ON();
- 196:	5f 98       	cbi	0x0b, 7	; 11
- 198:	08 95       	ret
+ 18e:	5f 98       	cbi	0x0b, 7	; 11
+ 190:	08 95       	ret
 
-0000019a <display_time>:
+00000192 <display_time>:
 }
 //时间显示函数
 void display_time(unsigned char Location,unsigned char num)
 {
 	switch(Location)
- 19a:	81 30       	cpi	r24, 0x01	; 1
- 19c:	19 f0       	breq	.+6      	; 0x1a4 <display_time+0xa>
- 19e:	82 30       	cpi	r24, 0x02	; 2
- 1a0:	81 f0       	breq	.+32     	; 0x1c2 <display_time+0x28>
- 1a2:	08 95       	ret
+ 192:	81 30       	cpi	r24, 0x01	; 1
+ 194:	19 f0       	breq	.+6      	; 0x19c <display_time+0xa>
+ 196:	82 30       	cpi	r24, 0x02	; 2
+ 198:	81 f0       	breq	.+32     	; 0x1ba <display_time+0x28>
+ 19a:	08 95       	ret
 	{
 		case LED1:hc595out(dispcode2[num]);SMG1_ON();_delay_us(1000);SMG1_OFF();break;
- 1a4:	e6 2f       	mov	r30, r22
- 1a6:	f0 e0       	ldi	r31, 0x00	; 0
- 1a8:	e0 50       	subi	r30, 0x00	; 0
- 1aa:	ff 4f       	sbci	r31, 0xFF	; 255
- 1ac:	80 81       	ld	r24, Z
- 1ae:	2d d0       	rcall	.+90     	; 0x20a <hc595out>
- 1b0:	5c 98       	cbi	0x0b, 4	; 11
+ 19c:	e6 2f       	mov	r30, r22
+ 19e:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a0:	e0 50       	subi	r30, 0x00	; 0
+ 1a2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a4:	80 81       	ld	r24, Z
+ 1a6:	2d d0       	rcall	.+90     	; 0x202 <hc595out>
+ 1a8:	5c 98       	cbi	0x0b, 4	; 11
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 1b2:	89 ef       	ldi	r24, 0xF9	; 249
- 1b4:	90 e0       	ldi	r25, 0x00	; 0
- 1b6:	01 97       	sbiw	r24, 0x01	; 1
- 1b8:	f1 f7       	brne	.-4      	; 0x1b6 <display_time+0x1c>
- 1ba:	00 c0       	rjmp	.+0      	; 0x1bc <display_time+0x22>
- 1bc:	00 00       	nop
- 1be:	5c 9a       	sbi	0x0b, 4	; 11
- 1c0:	08 95       	ret
+ 1aa:	89 ef       	ldi	r24, 0xF9	; 249
+ 1ac:	90 e0       	ldi	r25, 0x00	; 0
+ 1ae:	01 97       	sbiw	r24, 0x01	; 1
+ 1b0:	f1 f7       	brne	.-4      	; 0x1ae <display_time+0x1c>
+ 1b2:	00 c0       	rjmp	.+0      	; 0x1b4 <display_time+0x22>
+ 1b4:	00 00       	nop
+ 1b6:	5c 9a       	sbi	0x0b, 4	; 11
+ 1b8:	08 95       	ret
 		case LED2:hc595out(dispcode2[num]);SMG2_ON();_delay_us(1000);SMG2_OFF();break;
- 1c2:	e6 2f       	mov	r30, r22
- 1c4:	f0 e0       	ldi	r31, 0x00	; 0
- 1c6:	e0 50       	subi	r30, 0x00	; 0
- 1c8:	ff 4f       	sbci	r31, 0xFF	; 255
- 1ca:	80 81       	ld	r24, Z
- 1cc:	1e d0       	rcall	.+60     	; 0x20a <hc595out>
- 1ce:	5f 98       	cbi	0x0b, 7	; 11
- 1d0:	89 ef       	ldi	r24, 0xF9	; 249
- 1d2:	90 e0       	ldi	r25, 0x00	; 0
- 1d4:	01 97       	sbiw	r24, 0x01	; 1
- 1d6:	f1 f7       	brne	.-4      	; 0x1d4 <display_time+0x3a>
- 1d8:	00 c0       	rjmp	.+0      	; 0x1da <display_time+0x40>
- 1da:	00 00       	nop
- 1dc:	5f 9a       	sbi	0x0b, 7	; 11
- 1de:	08 95       	ret
+ 1ba:	e6 2f       	mov	r30, r22
+ 1bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1be:	e0 50       	subi	r30, 0x00	; 0
+ 1c0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c2:	80 81       	ld	r24, Z
+ 1c4:	1e d0       	rcall	.+60     	; 0x202 <hc595out>
+ 1c6:	5f 98       	cbi	0x0b, 7	; 11
+ 1c8:	89 ef       	ldi	r24, 0xF9	; 249
+ 1ca:	90 e0       	ldi	r25, 0x00	; 0
+ 1cc:	01 97       	sbiw	r24, 0x01	; 1
+ 1ce:	f1 f7       	brne	.-4      	; 0x1cc <display_time+0x3a>
+ 1d0:	00 c0       	rjmp	.+0      	; 0x1d2 <display_time+0x40>
+ 1d2:	00 00       	nop
+ 1d4:	5f 9a       	sbi	0x0b, 7	; 11
+ 1d6:	08 95       	ret
 
-000001e0 <hc595_init>:
+000001d8 <hc595_init>:
 
 /* 595 */
 //595初始化
 void hc595_init(void)
 {
 	DDRC = (1<<PC0) | (1<<PC4) | (1<<PC5); //输出口
- 1e0:	81 e3       	ldi	r24, 0x31	; 49
- 1e2:	87 b9       	out	0x07, r24	; 7
+ 1d8:	81 e3       	ldi	r24, 0x31	; 49
+ 1da:	87 b9       	out	0x07, r24	; 7
 	//hc595_ser = 1;
 	hc595rck_set();
- 1e4:	44 9a       	sbi	0x08, 4	; 8
+ 1dc:	44 9a       	sbi	0x08, 4	; 8
 	hc595clk_res();
- 1e6:	45 98       	cbi	0x08, 5	; 8
- 1e8:	08 95       	ret
+ 1de:	45 98       	cbi	0x08, 5	; 8
+ 1e0:	08 95       	ret
 
-000001ea <hc595_en>:
+000001e2 <hc595_en>:
 }
 
 //锁存输出
 void hc595_en(void)
 {
 	hc595rck_res();	//锁存低电平
- 1ea:	44 98       	cbi	0x08, 4	; 8
+ 1e2:	44 98       	cbi	0x08, 4	; 8
 	hc595rck_set();	//所存端产生上升沿跳变
- 1ec:	44 9a       	sbi	0x08, 4	; 8
+ 1e4:	44 9a       	sbi	0x08, 4	; 8
 	hc595rck_res();	//为下一次做准备
- 1ee:	44 98       	cbi	0x08, 4	; 8
- 1f0:	08 95       	ret
+ 1e6:	44 98       	cbi	0x08, 4	; 8
+ 1e8:	08 95       	ret
 
-000001f2 <hc595outbyte>:
+000001ea <hc595outbyte>:
 }
 
 //串行输入一个字节
 void hc595outbyte(unsigned char data)
 {
- 1f2:	98 e0       	ldi	r25, 0x08	; 8
+ 1ea:	98 e0       	ldi	r25, 0x08	; 8
 	unsigned char i;//数据移位
 	for(i=0;i<8;i++)//移位8次
 	{
 		if( data & 0x80 )//取出最高位，如果为1串行输入1，如果为0串行输入0
- 1f4:	88 23       	and	r24, r24
- 1f6:	14 f4       	brge	.+4      	; 0x1fc <hc595outbyte+0xa>
+ 1ec:	88 23       	and	r24, r24
+ 1ee:	14 f4       	brge	.+4      	; 0x1f4 <hc595outbyte+0xa>
 		{
 			hc595ser_set();
- 1f8:	40 9a       	sbi	0x08, 0	; 8
- 1fa:	01 c0       	rjmp	.+2      	; 0x1fe <hc595outbyte+0xc>
+ 1f0:	40 9a       	sbi	0x08, 0	; 8
+ 1f2:	01 c0       	rjmp	.+2      	; 0x1f6 <hc595outbyte+0xc>
 		}
 		else
 		{
 			hc595ser_res();
- 1fc:	40 98       	cbi	0x08, 0	; 8
+ 1f4:	40 98       	cbi	0x08, 0	; 8
 		}
 		data <<= 1;
- 1fe:	88 0f       	add	r24, r24
+ 1f6:	88 0f       	add	r24, r24
 		/* SCLK产生上升沿，移位寄存器中的数据整体后移，并接受新的数据(从ser/DS输入) */
 		hc595clk_set();
- 200:	45 9a       	sbi	0x08, 5	; 8
+ 1f8:	45 9a       	sbi	0x08, 5	; 8
 		hc595clk_res();
- 202:	45 98       	cbi	0x08, 5	; 8
- 204:	91 50       	subi	r25, 0x01	; 1
+ 1fa:	45 98       	cbi	0x08, 5	; 8
+ 1fc:	91 50       	subi	r25, 0x01	; 1
 
 //串行输入一个字节
 void hc595outbyte(unsigned char data)
 {
 	unsigned char i;//数据移位
 	for(i=0;i<8;i++)//移位8次
- 206:	b1 f7       	brne	.-20     	; 0x1f4 <hc595outbyte+0x2>
+ 1fe:	b1 f7       	brne	.-20     	; 0x1ec <hc595outbyte+0x2>
 		data <<= 1;
 		/* SCLK产生上升沿，移位寄存器中的数据整体后移，并接受新的数据(从ser/DS输入) */
 		hc595clk_set();
 		hc595clk_res();
 	}
 }
- 208:	08 95       	ret
+ 200:	08 95       	ret
 
-0000020a <hc595out>:
+00000202 <hc595out>:
 //595输出数据
 void hc595out(unsigned char data)
 {
 	hc595outbyte(data);//串行输入数据
- 20a:	f3 df       	rcall	.-26     	; 0x1f2 <hc595outbyte>
+ 202:	f3 df       	rcall	.-26     	; 0x1ea <hc595outbyte>
 	hc595_en();//数据锁存输出
- 20c:	ee df       	rcall	.-36     	; 0x1ea <hc595_en>
- 20e:	08 95       	ret
+ 204:	ee df       	rcall	.-36     	; 0x1e2 <hc595_en>
+ 206:	08 95       	ret
 
-00000210 <timer0_init>:
+00000208 <timer0_init>:
 /* 系统频率1Mhz */
 
 /* timer0--8位 */
 void timer0_init(void)
 {
 	cli();												//关闭全局中断
- 210:	f8 94       	cli
+ 208:	f8 94       	cli
 	TIMSK0 |= _BV(TOIE0);								//开溢出中断
- 212:	ee e6       	ldi	r30, 0x6E	; 110
- 214:	f0 e0       	ldi	r31, 0x00	; 0
- 216:	80 81       	ld	r24, Z
- 218:	81 60       	ori	r24, 0x01	; 1
- 21a:	80 83       	st	Z, r24
+ 20a:	ee e6       	ldi	r30, 0x6E	; 110
+ 20c:	f0 e0       	ldi	r31, 0x00	; 0
+ 20e:	80 81       	ld	r24, Z
+ 210:	81 60       	ori	r24, 0x01	; 1
+ 212:	80 83       	st	Z, r24
 	TCCR0B |= ( _BV(CS02) | _BV(CS00) );				//1024分频 约1ms
- 21c:	85 b5       	in	r24, 0x25	; 37
- 21e:	85 60       	ori	r24, 0x05	; 5
- 220:	85 bd       	out	0x25, r24	; 37
+ 214:	85 b5       	in	r24, 0x25	; 37
+ 216:	85 60       	ori	r24, 0x05	; 5
+ 218:	85 bd       	out	0x25, r24	; 37
 //	TCCR0A |= ( _BV(WGM02) | _BV(WGM01) | _BV(WGM00) );	//定时器普通模式
 	TCNT0 = 6;											//初值6，250ms
- 222:	86 e0       	ldi	r24, 0x06	; 6
- 224:	86 bd       	out	0x26, r24	; 38
+ 21a:	86 e0       	ldi	r24, 0x06	; 6
+ 21c:	86 bd       	out	0x26, r24	; 38
 	sei();												//打开全局中断
- 226:	78 94       	sei
- 228:	08 95       	ret
+ 21e:	78 94       	sei
+ 220:	08 95       	ret
 
-0000022a <pwm1_init>:
+00000222 <pwm1_init>:
 }
 
 /* timer1--16位 */
 void pwm1_init(void)
 {
 	cli();								//关闭全局中断
- 22a:	f8 94       	cli
+ 222:	f8 94       	cli
 	TCCR1B |= _BV(CS10);				//不分频  1M/2/500
- 22c:	e1 e8       	ldi	r30, 0x81	; 129
- 22e:	f0 e0       	ldi	r31, 0x00	; 0
- 230:	80 81       	ld	r24, Z
- 232:	81 60       	ori	r24, 0x01	; 1
- 234:	80 83       	st	Z, r24
+ 224:	e1 e8       	ldi	r30, 0x81	; 129
+ 226:	f0 e0       	ldi	r31, 0x00	; 0
+ 228:	80 81       	ld	r24, Z
+ 22a:	81 60       	ori	r24, 0x01	; 1
+ 22c:	80 83       	st	Z, r24
 	TCCR1A |= (1<<WGM11) | (1<<COM1A1);	//相位修正PWM
- 236:	a0 e8       	ldi	r26, 0x80	; 128
- 238:	b0 e0       	ldi	r27, 0x00	; 0
- 23a:	8c 91       	ld	r24, X
- 23c:	82 68       	ori	r24, 0x82	; 130
- 23e:	8c 93       	st	X, r24
+ 22e:	a0 e8       	ldi	r26, 0x80	; 128
+ 230:	b0 e0       	ldi	r27, 0x00	; 0
+ 232:	8c 91       	ld	r24, X
+ 234:	82 68       	ori	r24, 0x82	; 130
+ 236:	8c 93       	st	X, r24
 	TCCR1B |= (1<<WGM13);
- 240:	80 81       	ld	r24, Z
- 242:	80 61       	ori	r24, 0x10	; 16
- 244:	80 83       	st	Z, r24
+ 238:	80 81       	ld	r24, Z
+ 23a:	80 61       	ori	r24, 0x10	; 16
+ 23c:	80 83       	st	Z, r24
 	TIMSK1 |= _BV(OCIE1A);				//A中断
- 246:	ef e6       	ldi	r30, 0x6F	; 111
- 248:	f0 e0       	ldi	r31, 0x00	; 0
- 24a:	80 81       	ld	r24, Z
- 24c:	82 60       	ori	r24, 0x02	; 2
- 24e:	80 83       	st	Z, r24
+ 23e:	ef e6       	ldi	r30, 0x6F	; 111
+ 240:	f0 e0       	ldi	r31, 0x00	; 0
+ 242:	80 81       	ld	r24, Z
+ 244:	82 60       	ori	r24, 0x02	; 2
+ 246:	80 83       	st	Z, r24
 	/* 0-500升序时达到125清零，在500-0降序时达到125置位 */
 	OCR1A  = 125;						//比较寄存器数值
- 250:	8d e7       	ldi	r24, 0x7D	; 125
- 252:	90 e0       	ldi	r25, 0x00	; 0
- 254:	90 93 89 00 	sts	0x0089, r25
- 258:	80 93 88 00 	sts	0x0088, r24
+ 248:	8d e7       	ldi	r24, 0x7D	; 125
+ 24a:	90 e0       	ldi	r25, 0x00	; 0
+ 24c:	90 93 89 00 	sts	0x0089, r25
+ 250:	80 93 88 00 	sts	0x0088, r24
 	ICR1   = 500;						
- 25c:	84 ef       	ldi	r24, 0xF4	; 244
- 25e:	91 e0       	ldi	r25, 0x01	; 1
- 260:	90 93 87 00 	sts	0x0087, r25
- 264:	80 93 86 00 	sts	0x0086, r24
+ 254:	84 ef       	ldi	r24, 0xF4	; 244
+ 256:	91 e0       	ldi	r25, 0x01	; 1
+ 258:	90 93 87 00 	sts	0x0087, r25
+ 25c:	80 93 86 00 	sts	0x0086, r24
 	sei();								//打开全局中断
- 268:	78 94       	sei
- 26a:	08 95       	ret
+ 260:	78 94       	sei
+ 262:	08 95       	ret
 
-0000026c <__umulhisi3>:
- 26c:	a2 9f       	mul	r26, r18
- 26e:	b0 01       	movw	r22, r0
- 270:	b3 9f       	mul	r27, r19
- 272:	c0 01       	movw	r24, r0
- 274:	a3 9f       	mul	r26, r19
- 276:	01 d0       	rcall	.+2      	; 0x27a <__umulhisi3+0xe>
- 278:	b2 9f       	mul	r27, r18
- 27a:	70 0d       	add	r23, r0
- 27c:	81 1d       	adc	r24, r1
- 27e:	11 24       	eor	r1, r1
- 280:	91 1d       	adc	r25, r1
- 282:	08 95       	ret
+00000264 <__umulhisi3>:
+ 264:	a2 9f       	mul	r26, r18
+ 266:	b0 01       	movw	r22, r0
+ 268:	b3 9f       	mul	r27, r19
+ 26a:	c0 01       	movw	r24, r0
+ 26c:	a3 9f       	mul	r26, r19
+ 26e:	01 d0       	rcall	.+2      	; 0x272 <__umulhisi3+0xe>
+ 270:	b2 9f       	mul	r27, r18
+ 272:	70 0d       	add	r23, r0
+ 274:	81 1d       	adc	r24, r1
+ 276:	11 24       	eor	r1, r1
+ 278:	91 1d       	adc	r25, r1
+ 27a:	08 95       	ret
 
-00000284 <_exit>:
- 284:	f8 94       	cli
+0000027c <_exit>:
+ 27c:	f8 94       	cli
 
-00000286 <__stop_program>:
- 286:	ff cf       	rjmp	.-2      	; 0x286 <__stop_program>
+0000027e <__stop_program>:
+ 27e:	ff cf       	rjmp	.-2      	; 0x27e <__stop_program>

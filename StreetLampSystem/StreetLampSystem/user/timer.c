@@ -13,8 +13,9 @@ void timer0_init(void)
 }
 
 /* timer1--16位 */
-void pwm1_init(void)
+void pwm_init(void)
 {
+	/* A通道 */
 	cli();								//关闭全局中断
 	TCCR1B |= _BV(CS10);				//不分频  1M/2/500
 	TCCR1A |= (1<<WGM11) | (1<<COM1A1);	//相位修正PWM
@@ -24,4 +25,15 @@ void pwm1_init(void)
 	OCR1A  = 125;						//比较寄存器数值
 	ICR1   = 500;						
 	sei();								//打开全局中断
+}
+/* spwm */
+void spwm_init(void)
+{
+	/* B通道 */
+	cli();								
+	TCCR1A |= (1<<COM1B1);				
+	TIMSK1 |= _BV(OCIE1B);				//B中断
+	OCR1B  = 250;						//比较寄存器数值
+	//ICR1   = 500;
+	sei();								
 }

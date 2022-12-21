@@ -215,7 +215,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x288
+.text           0x00000000      0x280
  *(.vectors)
  .vectors       0x00000000       0x34 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm88pa.o
                 0x00000000                __vector_default
@@ -304,40 +304,40 @@ END GROUP
                 0x000000c8       0x64 GccTimerDemo.o
                 0x000000c8                __vector_16
  .text.__vector_11
-                0x0000012c       0x64 GccTimerDemo.o
+                0x0000012c       0x5c GccTimerDemo.o
                 0x0000012c                __vector_11
  .text.display_init
-                0x00000190        0xa user/display.o
-                0x00000190                display_init
+                0x00000188        0xa user/display.o
+                0x00000188                display_init
  .text.display_time
-                0x0000019a       0x46 user/display.o
-                0x0000019a                display_time
+                0x00000192       0x46 user/display.o
+                0x00000192                display_time
  .text.hc595_init
-                0x000001e0        0xa user/hc595.o
-                0x000001e0                hc595_init
+                0x000001d8        0xa user/hc595.o
+                0x000001d8                hc595_init
  .text.hc595_en
-                0x000001ea        0x8 user/hc595.o
-                0x000001ea                hc595_en
+                0x000001e2        0x8 user/hc595.o
+                0x000001e2                hc595_en
  .text.hc595outbyte
-                0x000001f2       0x18 user/hc595.o
-                0x000001f2                hc595outbyte
+                0x000001ea       0x18 user/hc595.o
+                0x000001ea                hc595outbyte
  .text.hc595out
-                0x0000020a        0x6 user/hc595.o
-                0x0000020a                hc595out
+                0x00000202        0x6 user/hc595.o
+                0x00000202                hc595out
  .text.timer0_init
-                0x00000210       0x1a user/timer.o
-                0x00000210                timer0_init
+                0x00000208       0x1a user/timer.o
+                0x00000208                timer0_init
  .text.pwm1_init
-                0x0000022a       0x42 user/timer.o
-                0x0000022a                pwm1_init
+                0x00000222       0x42 user/timer.o
+                0x00000222                pwm1_init
  .text.libgcc.mul
-                0x0000026c       0x18 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
-                0x0000026c                __umulhisi3
-                0x00000284                . = ALIGN (0x2)
+                0x00000264       0x18 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_umulhisi3.o)
+                0x00000264                __umulhisi3
+                0x0000027c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000284        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
-                0x00000284                _exit
-                0x00000284                exit
+ .fini9         0x0000027c        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+                0x0000027c                _exit
+                0x0000027c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -356,11 +356,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000284        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+ .fini0         0x0000027c        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000288                _etext = .
+                0x00000280                _etext = .
 
-.data           0x00800100        0xa load address 0x00000288
+.data           0x00800100        0xa load address 0x00000280
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -390,8 +390,8 @@ END GROUP
                 0x00800111                shiwei
  *(COMMON)
                 0x00800112                PROVIDE (__bss_end, .)
-                0x00000288                __data_load_start = LOADADDR (.data)
-                0x00000292                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000280                __data_load_start = LOADADDR (.data)
+                0x0000028a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800112        0x0
                 0x00800112                PROVIDE (__noinit_start, .)
@@ -488,12 +488,12 @@ END GROUP
  .debug_abbrev  0x00000239       0xc5 user/hc595.o
  .debug_abbrev  0x000002fe       0x51 user/timer.o
 
-.debug_line     0x00000000      0x3af
+.debug_line     0x00000000      0x3ae
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x109 GccTimerDemo.o
- .debug_line    0x00000109      0x126 user/display.o
- .debug_line    0x0000022f       0xd3 user/hc595.o
- .debug_line    0x00000302       0xad user/timer.o
+ .debug_line    0x00000000      0x108 GccTimerDemo.o
+ .debug_line    0x00000108      0x126 user/display.o
+ .debug_line    0x0000022e       0xd3 user/hc595.o
+ .debug_line    0x00000301       0xad user/timer.o
 
 .debug_frame    0x00000000      0x130
  *(.debug_frame)

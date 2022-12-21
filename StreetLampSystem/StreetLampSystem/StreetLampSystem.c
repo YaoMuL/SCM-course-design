@@ -23,7 +23,8 @@ int main(void)
 	hc595_init();
 	/* 定时器初始化 */
 	timer0_init();
-	pwm1_init();
+	pwm_init();
+	spwm_init();
 	/* adc初始化 */
 	adc_init();
 	

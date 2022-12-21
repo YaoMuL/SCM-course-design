@@ -58,5 +58,5 @@ ISR(TIMER1_COMPA_vect)
 	{
 		Cnt2 = 0;
 	}
-	PORTB ^= (1<<PB1);//PWM波形输出到端口
+	//PORTB ^= (1<<PB1);//PWM波形输出到端口
 }
